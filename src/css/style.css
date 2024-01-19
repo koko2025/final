@@ -1,0 +1,481 @@
+body{
+    height: 100%;
+    background-image:url(../img/haikei.png);
+    background-size:100%;
+}
+.bd{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    padding-bottom: 5%;
+}
+.text{
+  text-align: center;
+}
+img.IMG{
+    opacity: 0.5;
+    text-align: center;
+}
+.video{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.top{
+    /* background-color: white; */
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    color: black;
+}
+h1 {
+    position: relative;
+    display: inline-block;
+    padding: 0 55px;
+}
+
+h2{
+  text-align: center;
+}
+.gz{
+  margin-top: 5%;
+}
+.gz img{
+  max-width: 70%;
+  background: transparent;
+}
+.display{
+  margin: 0 auto;
+  max-width: 80%;
+}
+.btn{
+    text-align: right;
+    margin-right: 10px;
+}
+#btn{
+  background: transparent;
+  border:none;
+}
+.tb{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    color: black;
+    /* background-color: #f0fff0; */
+}
+.tb1{
+    width: 130px;
+    
+}
+.tb2{
+    width: 200px;
+}
+.fm p{
+    text-align: left;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.fm{
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    color: black;
+}
+.fm2{
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+    color: black;
+}
+.regibtn{
+  text-align: center;
+  margin: 0 auto;
+}
+th{
+    font-size: 20px;
+    padding: 10px;
+}
+.result{
+  text-align: center;
+}
+.btn{
+  margin-left: 5%;
+}
+.search{
+  margin-bottom: 2%;
+}
+.yougo{
+  margin: 0 auto;
+  display: block;
+}
+/*==================================================
+共通　横並びのための設定
+===================================*/
+
+.gnavi{
+  display: flex;
+  /* flex-wrap: wrap;スマホ表示折り返し用なのでPCのみなら不要 */
+  margin:0 0 10px 0;
+  list-style: none;
+}
+
+.gnavi li a{
+  display: block;
+  padding:10px 30px;
+  text-decoration: none;
+  color: #333;
+}
+
+.gnavi li{
+  margin-bottom:20px;
+}
+
+/* menuの部分 */
+.gnavi li a{
+  /*線の基点とするためrelativeを指定*/
+position: relative;
+}
+
+.gnavi li.current a,
+.gnavi li a:hover{
+color:#0481A2;
+}
+
+.gnavi li a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  /*線の形状*/
+  width: 80%;
+  height: 2px;
+  background:#0481A2;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);/*X方向0、Y方向1*/
+  transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+  transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+
+/*リンクを右下に固定 top*/
+/* #page-top {
+	position: fixed;
+	right: 10px;
+	bottom:10px;
+	z-index: 2;
+    /*はじめは非表示*/
+/*
+	opacity: 0;
+	transform: translateY(100px);
+} 
+
+/*　上に上がる動き　*/
+
+/* #page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+} */
+/* @keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+} */
+
+/*　下に下がる動き　*/
+
+/* #page-top.DownMove{
+	animation: DownAnime 0.5s forwards;
+} */
+/* @keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(200px);
+  }
+} */
+/*アコーディオン全体*/
+.accordion-area{
+    list-style: none;
+    width: 96%;
+    max-width: 900px;
+    margin:0 auto;
+}
+
+.accordion-area li{
+    margin: 10px 0;
+}
+
+.accordion-area section {
+	border: 1px solid #ccc;
+}
+
+/*アコーディオンタイトル*/
+.title {
+    position: relative;/*+マークの位置基準とするためrelative指定*/
+    cursor: pointer;
+    font-size:1rem;
+    font-weight: normal;
+    padding: 3% 3% 3% 50px;
+    transition: all .5s ease;
+}
+
+/*アイコンの＋と×*/
+.title::before,
+.title::after{
+    position: absolute;
+    content:'';
+    width: 15px;
+    height: 2px;
+    background-color: #333;
+    
+}
+.title::before{
+    top:48%;
+    left: 15px;
+    transform: rotate(0deg);
+    
+}
+.title::after{    
+    top:48%;
+    left: 15px;
+    transform: rotate(90deg);
+
+}
+/*　closeというクラスがついたら形状変化　*/
+.title.close::before{
+	transform: rotate(45deg);
+}
+
+.title.close::after{
+	transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+    display: none;/*はじめは非表示*/
+    background: #f3f3f3;
+	  margin:0 3% 3% 3%;
+    padding: 3%;
+}
+
+
+/*セレクトボックスの設定*/
+.wrap {
+  /* position: absolute; */
+  /*right: 0;
+  top: 40%;
+  width: 350px;
+  left: 0; */
+  margin: 0 5%;
+  display: flex;
+}
+
+/* select starting stylings ------------------------------*/
+.select {
+  position: relative;
+  width: 30%;
+}
+
+.select-text {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px 10px 10px 0;
+  font-size: 18px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+
+/* Remove focus */
+.select-text:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0,0,0, 0);
+}
+
+  /* Use custom arrow */
+.select .select-text {
+  appearance: none;
+  -webkit-appearance:none
+}
+
+.select:after {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+/* LABEL ======================================= */
+.select-label {
+  color: rgba(0,0,0, 0.26);
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+.select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+  color: #2F80ED;
+  top: -20px;
+  transition: 0.2s ease all;
+  font-size: 14px;
+}
+
+/* BOTTOM BARS ================================= */
+.select-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.select-bar:before, .select-bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #2F80ED;
+  transition: 0.2s ease all;
+}
+
+.select-bar:before {
+  left: 50%;
+}
+
+.select-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.select-highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* テキストボックス */
+.cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	letter-spacing: 1px;
+	padding-left: 4em;
+}
+.cp_iptxt input[type='text']:focus {
+	outline: none;
+}
+.e{
+	padding: 4px 0;
+	border: 0;
+	border-bottom: 1px solid #1b253892;
+	background-color: transparent;
+}
+.e ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #109719dd;
+}
+.e:focus ~ .focus_line,
+.cp_iptxt.e ~ .focus_line {
+	width: 100%;
+	transition: 0.4s;
+}
+.e ~ label {
+	position: absolute;
+	z-index: -1;
+	top: 4px;
+	left: 0;
+	width: 100%;
+	transition: 0.3s;
+	letter-spacing: 0.5px;
+	color: #000000;
+}
+.e:focus ~ label, .cp_iptxt.e ~ label {
+	font-size: 12px;
+	top: -16px;
+	transition: 0.3s;
+	color: #083d0bdd;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* buttonタグのリセットCSS（不要な場合、セレクタごと削除してください） */
+button {
+  padding: 0;
+  font-family: inherit;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* ボタンのスタイル */
+.buttonIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  aspect-ratio: 1;
+  background-color: #6fa24a;
+  border-radius: 50%;
+}
+
+@media (any-hover: hover) {
+  .buttonIcon {
+    transition: background-color 0.2s;
+  }
+
+  .buttonIcon:hover {
+    background-color: #54802f;
+  }
+}
+
